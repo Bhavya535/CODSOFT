@@ -1,7 +1,6 @@
 from math import sqrt
 import re
 
-# Sample data
 movies = {
     1: {"title": "Toy Story", "genres": ["Animation", "Children", "Comedy"]},
     2: {"title": "Jumanji", "genres": ["Adventure", "Children", "Fantasy"]},
@@ -22,7 +21,6 @@ user_preferences = {
     "user3": ["Comedy", "Fantasy"],
 }
 
-# Collaborative Filtering
 def calculate_similarity(ratings):
     similarity = {}
     for user in ratings:
@@ -46,7 +44,6 @@ def recommend_items(user, ratings, similarity):
     recommended_items = sorted(scores.items(), key=lambda x: x[1], reverse=True)
     return [item[0] for item in recommended_items]
 
-# Content-Based Filtering
 def genre_similarity(user_preferences, movies, user):
     user_genres = user_preferences[user]
     scores = {}
@@ -61,7 +58,6 @@ def genre_similarity(user_preferences, movies, user):
     recommended_items = sorted(scores.items(), key=lambda x: x[1], reverse=True)
     return [item[0] for item in recommended_items]
 
-# Main function to get user input and provide recommendations
 def main():
     # Get user input
     user = input("Enter your user ID (e.g., user1, user2, user3): ").strip()
@@ -85,6 +81,5 @@ def main():
     for movie_id in recommendations:
         print(f"Movie ID: {movie_id}, Title: {movies[movie_id]['title']}")
 
-# Run the main function
 if __name__ == "__main__":
     main()
